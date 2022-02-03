@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BookDTO>
+
+@{
+    ViewData["Title"] = "Lista de Livros";
+}
+
+<h1>Lista de Livros</h1>
+
+<p>
+    <a asp-controller="Book"
+       asp-action="Create">Adicionar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nome
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                
+                <td>
+                    <a asp-controller="Book"
+                       asp-action="Edit"
+                       asp-route-idBook="@item.Id">Editar</a> |
+                    <a asp-controller="Book"
+                       asp-action="Edit">Detalhes</a> |
+                    <a asp-controller="Book"
+                       asp-action="Edit">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

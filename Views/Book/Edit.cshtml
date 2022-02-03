@@ -1,0 +1,47 @@
+﻿@model BookDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Editar os dados</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Book"
+              asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group invisible">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="@Model.Id" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nome</label>
+                <input asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label">Autor</label>
+                <input asp-for="@Model.Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Publisher" class="control-label">Editora</label>
+                <input asp-for="@Model.Publisher" class="form-control" />
+                <span asp-validation-for="Publisher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Atualizar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div>
+        <a asp-controller="Book"
+           asp-action="List" class="btn btn-primary">Voltar</a>
+    </div>
+</div>
+
