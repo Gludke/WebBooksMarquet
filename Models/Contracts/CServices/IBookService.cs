@@ -12,5 +12,6 @@ namespace WebBooksMarquetIntroduction.Models.Contracts.CServices
         public void Register(BookDTO book);
         BookDTO SearchBookWithId(string idBook);
         void UpdateBook(BookDTO book);
+        void Remove(string idBook);
     }
 }

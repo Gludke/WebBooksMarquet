@@ -22,6 +22,16 @@ namespace WebBooksMarquetIntroduction.Models.Repositories
             ContextDataTest.listaLivros.Add(book);
         }
 
+        public void Remove(string idBook)
+        {
+            var bookToRemove = ContextDataTest.listaLivros
+                .Where(b => b.Id == idBook)
+                .FirstOrDefault();
+
+            if (bookToRemove != null)
+                ContextDataTest.listaLivros.Remove(bookToRemove);
+        }
+
         public BookDTO SearchBookWithId(string idBook)
         {
             return ContextDataTest.listaLivros

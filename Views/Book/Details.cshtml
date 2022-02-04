@@ -1,0 +1,44 @@
+﻿@model BookDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detailhes do Livro</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Id
+        </dt>
+        <dd class="col-sm-10 font-weight-bold">
+            @Model.Id
+        </dd>
+        <dt class="col-sm-2">
+            Nome
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Autor
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Author
+        </dd>
+        <dt class="col-sm-2">
+            Editora
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Publisher
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Book"
+       asp-action="Edit" class="btn btn-primary"
+       asp-route-idBook="@Model.Id">Editar dados</a>
+    <a asp-controller="Book"
+       asp-action="List" class="btn btn-primary">Voltar</a>
+</div>

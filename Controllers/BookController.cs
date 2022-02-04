@@ -75,7 +75,6 @@ namespace WebBooksMarquetIntroduction.Controllers
             {
                 throw ex;
             }
-           
         }
 
         //Edita os dados do livro
@@ -96,6 +95,41 @@ namespace WebBooksMarquetIntroduction.Controllers
                 throw ex;
             }
 
+        }
+
+        public IActionResult Details(string idBook)
+        {
+            if (String.IsNullOrEmpty(idBook))
+                return NotFound();
+
+            try
+            {
+                var book = _bookService.SearchBookWithId(idBook);
+                if (book == null)
+                    return NotFound();
+
+                return View(book);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IActionResult Remove(string idBook)
+        {
+            if (String.IsNullOrEmpty(idBook))
+                return NotFound();
+
+            try
+            {
+                _bookService.Remove(idBook);
+                return RedirectToAction("List");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

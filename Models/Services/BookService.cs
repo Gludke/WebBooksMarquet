@@ -41,6 +41,11 @@ namespace WebBooksMarquetIntroduction.Models.Services
             }
         }
 
+        public void Remove(string idBook)
+        {
+            _bookRepositorie.Remove(idBook);
+        }
+
         public BookDTO SearchBookWithId(string idBook)
         {
             try

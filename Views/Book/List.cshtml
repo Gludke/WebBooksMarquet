@@ -8,7 +8,7 @@
 
 <p>
     <a asp-controller="Book"
-       asp-action="Create">Adicionar Novo</a>
+       asp-action="Create" class="btn btn-primary">Adicionar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -23,7 +23,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @item.Id
@@ -31,17 +32,20 @@
                 <td>
                     @item.Name
                 </td>
-                
+
                 <td>
                     <a asp-controller="Book"
                        asp-action="Edit"
-                       asp-route-idBook="@item.Id">Editar</a> |
+                       asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Editar</a>
                     <a asp-controller="Book"
-                       asp-action="Edit">Detalhes</a> |
+                       asp-action="Details"
+                       asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Detalhes</a>
                     <a asp-controller="Book"
-                       asp-action="Edit">Remover</a>
+                       asp-action="Remove"
+                       asp-route-idBook="@item.Id" class="btn btn-secondary btn-base">Remover</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
