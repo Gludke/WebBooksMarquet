@@ -24,9 +24,7 @@ namespace WebBooksMarquetIntroduction.Models.Repositories
 
         public void Remove(string idBook)
         {
-            var bookToRemove = ContextDataTest.listaLivros
-                .Where(b => b.Id == idBook)
-                .FirstOrDefault();
+            var bookToRemove = SearchBookWithId(idBook);
 
             if (bookToRemove != null)
                 ContextDataTest.listaLivros.Remove(bookToRemove);

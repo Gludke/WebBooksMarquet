@@ -94,7 +94,6 @@ namespace WebBooksMarquetIntroduction.Controllers
             {
                 throw ex;
             }
-
         }
 
         public IActionResult Details(string idBook)
@@ -116,6 +115,27 @@ namespace WebBooksMarquetIntroduction.Controllers
             }
         }
 
+        //Direciona para a view de remoção
+        public IActionResult RemoveView(string idBook)
+        {
+            if (String.IsNullOrEmpty(idBook))
+                return NotFound();
+
+            try
+            {
+                var book = _bookService.SearchBookWithId(idBook);
+                if(book == null)
+                    return NotFound();
+
+                return View(book);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        //Remoção do livro
         public IActionResult Remove(string idBook)
         {
             if (String.IsNullOrEmpty(idBook))
